@@ -17,7 +17,9 @@ const mutations = {
 
 const actions = {
     buyStock: ({commit}, order) => {
-        commit('');
+        //IMPORTANT - BUY_STOCK is in moddules/portfolio.js file, 
+        //BUT we can still reference it here because of the GLOBAL NAMESPACE
+        commit('BUY_STOCK', order);
     },
     initStocks: ({commit}) => {
         commit('SET_STOCKS', stocks)
