@@ -24,7 +24,7 @@ const mutations = {
     'SELL_STOCKS'(state, {stockId, quantity, stockPrice}) {
         //check if stock is already in my stocks array
         const record = state.stocks.find(element => element.id === stockId);
-        if (ecord.quantity > quantity) {
+        if (record.quantity > quantity) {
             record.quantity -= quantity;
         } else {
             // remove particular stock from the array
