@@ -1,9 +1,14 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router';
+import VueResource from 'vue-resource';
 
 import App from './App.vue'
 import { routes } from './routes.js';
 import store from './store/store';
+
+  // give vue, http functionality
+Vue.use(VueResource);
+Vue.http.options.root = 'https://vuejs-stock-trader-3b776.firebaseio.com/';
 
   // allow vue to use VueRouter
 Vue.use(VueRouter);
@@ -13,7 +18,9 @@ const router = new VueRouter({
   routes: routes
 })
 
-
+Vue.filter('currency', (value) =>{
+  return '$'+value.toLocaleString();
+})
 
 new Vue({
   el: '#app',
